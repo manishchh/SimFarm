@@ -1,5 +1,12 @@
 package students.items;
 
-public class Soil {
+public abstract class Soil extends Item {
+	Soil(){
+		super(0,0,0);
+	}
+	
+	public String toString() {
+		return ".";
+	}
 
 }
