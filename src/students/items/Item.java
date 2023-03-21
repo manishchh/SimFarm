@@ -8,7 +8,7 @@ package students.items;
  * All items start at age 0, with the maturation age, death age, and monetary value set as part of its constructor. 
  */
 
-public class Item {
+public abstract class Item {
 	int age;
 	int maturationAge;
 	int deathAge;
