@@ -1,6 +1,13 @@
 package students.items;
 
-public class UntilledSoil {
+public abstract class UntilledSoil extends Item {
+	UntilledSoil(){
+		super(0,0,-1);
+	}
+	
+	public String toString() {
+		return "/";
+	}
 
 
 }
