@@ -70,4 +70,20 @@ public class Field {
 		Object cloned = fieldArray[x][y].clone();
 	    return cloned;
 	}
+	
+	public void plant(int x, int y, Item item) {
+		fieldArray[x][y] = item;
+		
+	}
+	
+	public int getValue() {
+		int monetaryValue = 0;
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				Item item = fieldArray[i][j];
+				monetaryValue += item.getValue();
+			}
+		}
+		return monetaryValue;
+	}
 }
