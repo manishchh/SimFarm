@@ -45,4 +45,20 @@ public class Field {
 		}
 	
 	}
+	
+	public String toString() {
+		String str = " ";
+		for (int i = 0; i < width; i++) {
+			str += String.format("%-3s", i + 1);
+		}
+		for (int i = 0; i < height; i++) {
+			str += "\n";
+			str += String.format("%-3s", (i + 1));
+			for (int j = 0; j < width; j++) {
+				str += String.format("%-3s", fieldArray[i][j].toString());
+			}
+		}
+		return str;
+		
+	}
 }
