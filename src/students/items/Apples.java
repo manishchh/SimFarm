@@ -13,7 +13,7 @@ public class Apples extends Food {
 		return (Apples)super.clone();
 	}
 	
-	public int getGenerationCount() {
+	public static int getGenerationCount() {
 		return Apples.numberOfInstances;
 	}
 	
