@@ -65,4 +65,9 @@ public class Field {
 	public void till(int x, int y) {
 		fieldArray[x][y] = new Soil();
 	}
+	
+	public Object get(int x, int y) throws CloneNotSupportedException {
+		Object cloned = fieldArray[x][y].clone();
+	    return cloned;
+	}
 }
