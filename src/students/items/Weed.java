@@ -1,7 +1,7 @@
 package students.items;
 
-public abstract class Weed extends Item {
-	Weed(){
+public class Weed extends Item {
+	public Weed(){
 		super(0,0,-1);
 	}
 	

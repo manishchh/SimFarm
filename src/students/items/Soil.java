@@ -1,7 +1,7 @@
 package students.items;
 
-public abstract class Soil extends Item {
-	Soil(){
+public class Soil extends Item {
+	 public Soil(){
 		super(0,0,0);
 	}
 	
