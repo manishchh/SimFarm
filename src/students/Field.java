@@ -61,4 +61,8 @@ public class Field {
 		return str;
 		
 	}
+	
+	public void till(int x, int y) {
+		fieldArray[x][y] = new Soil();
+	}
 }
