@@ -14,10 +14,11 @@ public class Grain extends Food{
 		return (Grain)super.clone();
 	}
 		
-	public int getGenerationCount() {
+	public static int getGenerationCount() {
 		return Grain.numberOfInstances;
 	}
-
+	
+	@Override
 	public String toString() {
 		if(this.age < this.maturationAge) 
 		{
