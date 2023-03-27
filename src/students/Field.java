@@ -1,6 +1,9 @@
 package students;
 
 import java.util.Random;
+
+import students.items.Apples;
+import students.items.Grain;
 import students.items.Item;
 import students.items.Soil;
 import students.items.UntilledSoil;
@@ -86,4 +89,51 @@ public class Field {
 		}
 		return monetaryValue;
 	}
+public String getSummary() {
+		
+		int appleCount = 0;
+		int grainCount = 0;
+		int soilCount = 0;
+		int untilledSoilCount = 0;
+		int weedCount = 0;
+		int total_appleCount =  Apples.getGenerationCount();
+		int total_grainCount = Grain.getGenerationCount();
+		int monetaryValue = getValue();
+		
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				Item item = fieldArray[i][j];
+				if (item instanceof Apples) {
+					appleCount++;
+					monetaryValue += item.getValue();
+				}
+				else if (item instanceof Grain) {
+					grainCount++;
+					monetaryValue += item.getValue();
+				}
+				else if (item instanceof Soil) {
+					soilCount++;
+				}
+				else if (item instanceof UntilledSoil) {
+					untilledSoilCount++;
+				}
+				else if (item instanceof Weed) {
+					weedCount++;
+				}
+			}
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(String.format("Apples:        %d\n", appleCount));
+		sb.append(String.format("Grain:         %d\n", grainCount));
+		sb.append(String.format("Soil:          %d\n", soilCount));
+		sb.append(String.format("Untilled:      %d\n", untilledSoilCount));
+		sb.append(String.format("Weed:          %d\n", weedCount));
+		sb.append(String.format("For a total of $%d\n", monetaryValue));
+		sb.append(String.format("Total apples created: %d\n", total_appleCount));
+		sb.append(String.format("Total grain created: %d\n", total_grainCount));
+	
+		return sb.toString();
+	}
+	
 }
