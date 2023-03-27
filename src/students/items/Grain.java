@@ -9,6 +9,11 @@ public class Grain extends Food{
 		super(2,6,2);
 	}
 	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return (Grain)super.clone();
+	}
+		
 	public int getGenerationCount() {
 		return Grain.numberOfInstances;
 	}

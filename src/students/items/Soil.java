@@ -5,6 +5,12 @@ public class Soil extends Item {
 		super(0,0,0);
 	}
 	
+	@Override
+	public Object clone() throws CloneNotSupportedException {									
+		return (Soil)super.clone(); 
+	}
+	
+	 
 	public String toString() {
 		return ".";
 	}

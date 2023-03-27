@@ -8,7 +8,7 @@ package students.items;
  * All items start at age 0, with the maturation age, death age, and monetary value set as part of its constructor. 
  */
 
-public abstract class Item {
+public abstract class Item implements Cloneable{
 	int age;
 	int maturationAge;
 	int deathAge;
@@ -24,6 +24,19 @@ public abstract class Item {
 		this.monetaryValue = monetaryValue;
 		
 	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		try {
+	        return (Item)super.clone();
+	    } catch (CloneNotSupportedException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
+			
+			
+		
 	/**
 	 * Age increases by 1
 	 */

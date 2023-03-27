@@ -8,10 +8,16 @@ public class Apples extends Food {
 		super(3,5,3);
 		
 	}
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return (Apples)super.clone();
+	}
 	
 	public int getGenerationCount() {
 		return Apples.numberOfInstances;
 	}
+	
+	@Override
 	public String toString() {
 		if (this.age < this.maturationAge)
 		{
@@ -20,6 +26,7 @@ public class Apples extends Food {
 		}
 		return "A";
 	}
+	
 	
 	public int getCost() {
 		return appleCost;
