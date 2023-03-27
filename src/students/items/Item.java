@@ -68,7 +68,7 @@ public abstract class Item implements Cloneable{
 	 */
 	public int getValue() {
 		if (this.age >= this.maturationAge) {
-			return this.maturationAge;
+			return this.monetaryValue;
 		}
 		else {
 			return 0;
