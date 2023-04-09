@@ -44,7 +44,7 @@ public class Field {
 				//increase age
 				item.tick();
 				//if item dies
-				if (item.isDead()) {
+				if (item.died()) {
 					fieldArray[i][j]= new UntilledSoil();
 				}
 				else if (item instanceof Soil) {
@@ -122,6 +122,10 @@ public class Field {
 		return monetaryValue;
 	}
 	
+	public void eliminateFood(int x, int y) {
+	    fieldArray[x][y] = null;
+	}
+	
 	/**
 	 * returns summary of current state of field 
 	 * Counts number of each items
@@ -175,5 +179,7 @@ public class Field {
 	
 		return sb.toString();
 	}
+
+
 	
 }
