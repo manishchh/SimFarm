@@ -94,7 +94,26 @@ public class Farm {
 				
 
 			} else if (userInput.startsWith("h ")) {
-			
+				String[] inputs = userInput.split(" ");
+				if (inputs.length != 3 || !isNumeric(inputs[1]) || !isNumeric(inputs[2])) {
+				    System.out.println("Invalid Input");
+				} else {
+				    int x = Integer.parseInt(inputs[1]);
+				    int y = Integer.parseInt(inputs[2]);
+				    Object obj = field.get(x, y);
+				    if (obj instanceof Food) {
+				        Food food = (Food) obj;
+				        if (food.isMature()) {
+				            bankBalance += food.getValue();
+				            field.eliminateFood(x, y);
+				            System.out.println("Harvested food at (" + x + "," + y + ") for $" + food.getValue());
+				        } else {
+				            System.out.println("Food at (" + x + "," + y + ") is not mature yet. Please wait.");
+				        }
+				    } else {
+				        System.out.println("No food at (" + x + "," + y + ")");
+				    }
+				}
 			}
 
 			else if (userInput.startsWith("p ")) {
