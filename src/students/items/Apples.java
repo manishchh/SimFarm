@@ -6,6 +6,8 @@ public class Apples extends Food {
 	private static final int appleCost = 2;
 	public Apples(){
 		super(3,5,3);
+		Apples.numberOfInstances++;
+		
 		
 	}
 	@Override
