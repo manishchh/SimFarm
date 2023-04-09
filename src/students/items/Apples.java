@@ -30,7 +30,7 @@ public class Apples extends Food {
 	}
 	
 	
-	public int getCost() {
+	public static int getCost() {
 		return appleCost;
 	}
 }
