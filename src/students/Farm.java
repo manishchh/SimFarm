@@ -1,11 +1,14 @@
 package students;
 
+import java.util.Scanner;
+
 import students.items.Apples;
 
 public class Farm {
 	int fieldWidht;
-	int fileHeight;
+	int fieldHeight;
 	int startingFunds;
+	int bankBalance;
 	Field field;
 	
 	/**
@@ -15,14 +18,39 @@ public class Farm {
 	
 	public Farm(int fieldWidth, int fieldHeight, int startingFunds){
 		this.fieldWidht = fieldWidth;
-		this.fileHeight = fieldHeight;
+		this.fieldHeight = fieldHeight;
 		this.startingFunds = startingFunds;
+		this.bankBalance = startingFunds;
+		field = new Field(this.fieldHeight, this.fieldWidht);
 	}
 	
 	public void run(){
+		Scanner sc = new Scanner(System.in);
+		String player_input;
+		while(true){
+			System.out.println(field.toString() + "\n");
+			System.out.println("Bank balance: $" + startingFunds + "\n");
+			System.out.println("Enter your next action:");
+			System.out.println("t x y: till");
+			System.out.println("h x y: harvest");
+			System.out.println("p x y: plant");
+			System.out.println("s: field summary");
+			System.out.println("w: wait");
+			System.out.println("q: quit");
+			
+			player_input = sc.nextLine().trim();
+			String[] inputs = player_input.split("\\s+");
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+			
 		
-		field = new Field(this.fileHeight, this.fieldWidht);
-		field.plant(2, 4, new Apples());
 	}
 	
 }
