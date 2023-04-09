@@ -4,7 +4,7 @@ public class Apples extends Food {
 	
 	private static int numberOfInstances = 0;
 	private static final int appleCost = 2;
-	Apples(){
+	public Apples(){
 		super(3,5,3);
 		
 	}

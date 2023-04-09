@@ -1,13 +1,29 @@
 package students;
 
+import students.items.Apples;
+
 public class Farm {
+	int fieldWidht;
+	int fileHeight;
+	int startingFunds;
+	Field field;
 	
-	public Farm(int fieldWidth, int fieldHeight, int startingFunds)
-	{
+	/**
+	 * 
+	 * @param fieldWidth
+	 * @param fieldHeight
+	 * @param startingFunds
+	 */
+	public Farm(int fieldWidth, int fieldHeight, int startingFunds){
+		this.fieldWidht = fieldWidth;
+		this.fileHeight = fieldHeight;
+		this.startingFunds = startingFunds;
 	}
 	
-	public void run()
-	{
+	public void run(){
+		
+		field = new Field(this.fileHeight, this.fieldWidht);
+		field.plant(2, 4, new Apples());
 	}
 	
 }
