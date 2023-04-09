@@ -3,6 +3,9 @@ package students;
 import java.util.Scanner;
 
 import students.items.Apples;
+import students.items.Food;
+import students.items.Grain;
+import students.items.Soil;
 
 public class Farm {
 	int fieldWidht;
@@ -24,12 +27,11 @@ public class Farm {
 		field = new Field(this.fieldHeight, this.fieldWidht);
 	}
 	
-	public void run(){
+	
+	private void userInput() {
 		Scanner sc = new Scanner(System.in);
-		String player_input;
-		while(true){
-			
-			//display the current balance and field state
+		String userInput;
+		do {
 			System.out.println(field.toString() + "\n");
 			System.out.println("Bank balance: $" + startingFunds + "\n");
 			System.out.println("Enter your next action:");
@@ -39,52 +41,71 @@ public class Farm {
 			System.out.println("s: field summary");
 			System.out.println("w: wait");
 			System.out.println("q: quit");
-			
-			//ask user choice of input
-			player_input = sc.nextLine().trim();
-			String[] inputs = player_input.split("\\s+");
-			
-			/**
-			 * check the length of player input is equal to 0 
-			 * if 0 ask player to enter the choice again
-			 */
-			
-			if(inputs.length == 0) {
-				System.out.println("Invalid input. Try again.");
-				continue;
+
+			userInput = sc.nextLine();
+
+			if (userInput.startsWith("t ")) {
+				String[] inputs = userInput.split(" ");
+				if (inputs.length != 3) {
+					System.out.println("Invalid Input");
+				}
+				if (! isNumeric(inputs[1]) || ! isNumeric(inputs[2])) {
+					System.out.println("Invalid Input");
+					
+				}
+				int x = Integer.parseInt(inputs[1]);
+				int y = Integer.parseInt(inputs[2]);
+				if (x >= this.field.width || x < 0) {
+					System.out.println("Invalid Input");
+
+				}
 				
+				if (y >= this.field.height || y < 0) {
+					System.out.println("Invalid Input");
+				}	
+				
+				field.till(x, y);
+				
+				
+
+			} else if (userInput.startsWith("h ")) {
+			
 			}
-			
-			
-			/**
-			 * Attempts to parse the second and third elements of the inputs array as integers representing coordinates.
-			 * If successful, assigns the values to x and y variables.
-			 * If unsuccessful due to a NumberFormatException, prints an error message and continues the loop.
-			 * If unsuccessful due to an ArrayIndexOutOfBoundsException, prints an error message and continues the loop.
-			 *
-			 * @param inputs An array of strings representing user input
-			 * @param x An integer variable to store the x coordinate
-			 * @param y An integer variable to store the y coordinate
-			 */
-			try {
-                int x = Integer.parseInt(inputs[1]);
-                int y = Integer.parseInt(inputs[2]);
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid Input");
-                continue;
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("Invalid Input");
-                continue;
-            }
-			
-			
-			
-			
-			
-			
-		}
-			
+
+			else if (userInput.startsWith("p ")) {
 		
+
+			}
+
+			else if (userInput.equals("s")) {
+				System.out.println(field.getSummary());
+
+			}
+
+			else if (userInput.equals("w")) {
+
+			} else if (userInput.equals("q")) {
+
+			} else {
+				System.out.println("Invalid Input");
+
+			}
+
+		
+		} while (!userInput.equals("q"));
+
+	
+	}
+		
+				
+				
+
+			
+	public void run() {
+		field = new Field(this.fieldHeight, this.fieldWidht);
+		userInput();
 	}
 	
+		
 }
+
