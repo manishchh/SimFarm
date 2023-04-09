@@ -28,6 +28,25 @@ public class Farm {
 	}
 	
 	
+	/**
+	  * Determines whether a given string is numeric or not.
+	  *
+	  * @param str The string to check for numeric value
+	  * @return true if the string is numeric, false otherwise
+	  */
+	public boolean isNumeric(String str) { 
+		  try {  
+		    Integer.parseInt(str);  
+		    return true;
+		  } catch(NumberFormatException e){  
+		    return false;  
+		  }  
+		}
+
+
+	
+	
+	
 	private void userInput() {
 		Scanner sc = new Scanner(System.in);
 		String userInput;
