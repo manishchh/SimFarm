@@ -64,15 +64,15 @@ public class Field {
 	 * @return string representation of Field Object
 	 */
 	public String toString() {
-		String str = " ";
+		String str = "    ";
 		for (int i = 0; i < width; i++) {
-			str += String.format("%-3s", i + 1);
+			str += String.format("%-4s", i + 1);
 		}
 		for (int i = 0; i < height; i++) {
 			str += "\n";
-			str += String.format("%-3s", (i + 1));
+			str += String.format("%-4s", (i + 1));
 			for (int j = 0; j < width; j++) {
-				str += String.format("%-3s", fieldArray[i][j].toString());
+				str += String.format("%-4s", fieldArray[i][j].toString());
 			}
 		}
 		return str;
