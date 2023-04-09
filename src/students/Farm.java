@@ -9,11 +9,10 @@ public class Farm {
 	Field field;
 	
 	/**
-	 * 
-	 * @param fieldWidth
-	 * @param fieldHeight
-	 * @param startingFunds
+	 *
+	 * Initialized Constructor for Farm Class which takes 3 parameters(fieldWidth,fieldHeight,startingFunds)
 	 */
+	
 	public Farm(int fieldWidth, int fieldHeight, int startingFunds){
 		this.fieldWidht = fieldWidth;
 		this.fileHeight = fieldHeight;
