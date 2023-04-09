@@ -31,7 +31,7 @@ public class Grain extends Food{
 		
 	}
 	
-	public int getCost() {
+	public static int getCost() {
 		return grainCost;
 	}
 }
