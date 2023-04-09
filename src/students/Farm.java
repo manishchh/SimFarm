@@ -56,6 +56,27 @@ public class Farm {
 			}
 			
 			
+			/**
+			 * Attempts to parse the second and third elements of the inputs array as integers representing coordinates.
+			 * If successful, assigns the values to x and y variables.
+			 * If unsuccessful due to a NumberFormatException, prints an error message and continues the loop.
+			 * If unsuccessful due to an ArrayIndexOutOfBoundsException, prints an error message and continues the loop.
+			 *
+			 * @param inputs An array of strings representing user input
+			 * @param x An integer variable to store the x coordinate
+			 * @param y An integer variable to store the y coordinate
+			 */
+			try {
+                int x = Integer.parseInt(inputs[1]);
+                int y = Integer.parseInt(inputs[2]);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid Input");
+                continue;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Invalid Input");
+                continue;
+            }
+			
 			
 			
 			
