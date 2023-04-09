@@ -63,6 +63,12 @@ public class Farm {
 
 			userInput = sc.nextLine();
 
+			 /**
+			  * Processes user input that starts with "t " and performs the till operation on the specified coordinates.
+			  *
+			  * @param userInput The user input to process
+			  * @param field The field object on which to perform the till operation
+			  */
 			if (userInput.startsWith("t ")) {
 				String[] inputs = userInput.split(" ");
 				if (inputs.length != 3) {
