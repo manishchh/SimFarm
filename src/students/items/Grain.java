@@ -5,8 +5,10 @@ public class Grain extends Food{
 	private static int numberOfInstances = 0;
 	private static final int grainCost = 1;
 	
-	Grain(){
+	public Grain(){
 		super(2,6,2);
+		Grain.numberOfInstances++;
+		
 	}
 	
 	@Override
