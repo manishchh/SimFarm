@@ -122,12 +122,45 @@ public class Farm {
 				    }
 				}
 			}
-
+			
+			/**
+			* Parses user input to check if it starts with "h " and if it contains two numeric values.
+			* If the input is invalid, it prints an error message.
+			*/
 			else if (userInput.startsWith("p ")) {
-		
+				String[] inputs = userInput.split(" ");
+			    if (inputs.length != 3 || !isNumeric(inputs[1]) || !isNumeric(inputs[2])) {
+			        System.out.println("Invalid Input");
+			    } else {
+			        int x = Integer.parseInt(inputs[1]);
+			        int y = Integer.parseInt(inputs[2]);
+			        /**
+			         * Allows the player to plant an item in the field if they have enough money to buy it.
+			         * If the player enters 'a', an apple will be planted if they have enough money.
+			         * If the player enters 'g', grain will be planted if they have enough money.
+			         * If the player cannot afford to plant the item, they will be prompted to try again.
+			         */
+			        if (field.get(x, y) instanceof Soil) {
+			            System.out.println("Enter 'a' to buy an apple for $ or 'g' to buy grain for $");
+			            String itemInput = sc.nextLine();
+			            if (itemInput.equals("a") && bankBalance >= Apples.getCost()) {
+			                field.plant(x, y, new Apples());
+			                bankBalance -= Apples.getCost();
+			            } else if (itemInput.equals("g") && bankBalance >= Grain.getCost()) {
+			                field.plant(x, y, new Grain());
+			                bankBalance -= Grain.getCost();
+			            } else {
+			                System.out.println("You can't afford to plant that item. Please try again.");
+			                continue;
+			            }
+			            System.out.println("Planted " + field.get(x, y)+ " at (" + x + "," + y + ")");
+			        } else {
+			            System.out.println("You can only plant items in Soil. Please try again.");
+			        }
+			    }
 
 			}
-
+			//Produce the summary of all the values and quantities of field
 			else if (userInput.equals("s")) {
 				System.out.println(field.getSummary());
 
