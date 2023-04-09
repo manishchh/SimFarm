@@ -47,7 +47,7 @@ public class Farm {
 	
 	
 	
-	private void userInput() {
+	private void userInput() throws CloneNotSupportedException {
 		Scanner sc = new Scanner(System.in);
 		String userInput;
 		do {
@@ -92,7 +92,10 @@ public class Farm {
 				field.till(x, y);
 				
 				
-
+			/**
+			* Parses user input to check if it starts with "h " and if it contains two numeric values.
+			* If the input is invalid, it prints an error message.
+			*/
 			} else if (userInput.startsWith("h ")) {
 				String[] inputs = userInput.split(" ");
 				if (inputs.length != 3 || !isNumeric(inputs[1]) || !isNumeric(inputs[2])) {
@@ -101,6 +104,10 @@ public class Farm {
 				    int x = Integer.parseInt(inputs[1]);
 				    int y = Integer.parseInt(inputs[2]);
 				    Object obj = field.get(x, y);
+				    //Harvests food at the given coordinates if it is mature, adds its value to the bank balance,
+				    // and removes it from the field. If the food is not mature, prints a message indicating so.
+				    // If there is no food at the given coordinates, prints a message indicating so.
+				     
 				    if (obj instanceof Food) {
 				        Food food = (Food) obj;
 				        if (food.isMature()) {
@@ -145,7 +152,7 @@ public class Farm {
 				
 
 			
-	public void run() {
+	public void run() throws CloneNotSupportedException {
 		field = new Field(this.fieldHeight, this.fieldWidht);
 		userInput();
 	}
