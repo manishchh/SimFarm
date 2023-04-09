@@ -165,22 +165,26 @@ public class Farm {
 				System.out.println(field.getSummary());
 
 			}
-
+			//increase age and skips player choice
 			else if (userInput.equals("w")) {
+				field.tick();
 
+			//if user enter q print and end game
 			} else if (userInput.equals("q")) {
-
+				System.out.println("Thanks for playing!");
+			    break;
+			//untill player enter invalid choice it prompts to enter correct one		
 			} else {
-				System.out.println("Invalid Input");
-
+				System.out.println("Invalid Input. Try Again");
+				continue;
 			}
 
 		
 		} while (!userInput.equals("q"));
 
-	
-	}
 		
+	}
+
 				
 				
 
