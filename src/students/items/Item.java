@@ -103,13 +103,7 @@ public abstract class Item implements Cloneable{
 	 * Implementation of abstract method to instantiate subclasses which returns string representation of item class
 	 */
 	public abstract String toString();
-	
-	public boolean isDead() {
-		return this.age >= this.deathAge;
-		
-		
-	}
-	
+
 	
 	
 	
