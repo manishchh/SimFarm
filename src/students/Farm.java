@@ -168,10 +168,10 @@ public class Farm {
 				System.out.println(field.getSummary());
 
 			}
-			//increase age and skips player choice
+			// Do nothing and skip the turn.
 			else if (userInput.equals("w")) {
-				field.tick();
-
+				
+				
 			//if user enter q print and end game
 			} else if (userInput.equals("q")) {
 				System.out.println("Thanks for playing!");
