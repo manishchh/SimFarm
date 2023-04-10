@@ -13,12 +13,5 @@ public abstract class Food extends Item{
 		
 	}
 	
-	/**
-	   * Determines if an object is mature based on its age and maturation age.
-	   *
-	   * @return true if the object is mature, false otherwise
-	   */
-	public boolean isMature() {
-	    return this.age >= this.maturationAge;
-	}
+
 }
