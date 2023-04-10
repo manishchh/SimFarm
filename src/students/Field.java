@@ -122,16 +122,7 @@ public class Field {
 		return monetaryValue;
 	}
 	
-	 /**
-	   * Eliminates the food at the specified coordinates by setting the corresponding element in the field array to null.
-	   *
-	   * @param x The x-coordinate of the food to be eliminated
-	   * @param y The y-coordinate of the food to be eliminated
-	   */
-	public void eliminateFood(int x, int y) {
-	    fieldArray[x][y] = null;
-	}
-	
+
 	/**
 	 * returns summary of current state of field 
 	 * Counts number of each items
