@@ -95,6 +95,9 @@ public abstract class Item implements Cloneable{
 		
 	}
 	
+	public boolean isMature() {
+	    return this.age >= this.maturationAge;
+	}
 	
 
 
@@ -103,6 +106,8 @@ public abstract class Item implements Cloneable{
 	 * Implementation of abstract method to instantiate subclasses which returns string representation of item class
 	 */
 	public abstract String toString();
+
+	
 
 	
 	
