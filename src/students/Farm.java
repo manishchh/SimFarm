@@ -5,6 +5,7 @@ import java.util.Scanner;
 import students.items.Apples;
 import students.items.Food;
 import students.items.Grain;
+import students.items.Item;
 import students.items.Soil;
 
 public class Farm {
@@ -108,12 +109,11 @@ public class Farm {
 				    // and removes it from the field. If the food is not mature, prints a message indicating so.
 				    // If there is no food at the given coordinates, prints a message indicating so.
 				     
-				    if (obj instanceof Food) {
-				        Food food = (Food) obj;
-				        if (food.isMature()) {
-				            bankBalance += food.getValue();
-				            field.eliminateFood(x, y);
-				            System.out.println("Harvested food at (" + x + "," + y + ") for $" + food.getValue());
+				    if (obj instanceof Item) {
+				        Item item = (Item) obj;
+				        if (item.isMature()) {
+				            bankBalance += item.getValue();
+				            System.out.println("Sold '" + item.toString() + "' for " + item.getValue());
 				        } else {
 				            System.out.println("Food at (" + x + "," + y + ") is not mature yet. Please wait.");
 				        }
@@ -140,8 +140,11 @@ public class Farm {
 			         * If the player enters 'g', grain will be planted if they have enough money.
 			         * If the player cannot afford to plant the item, they will be prompted to try again.
 			         */
-			        if (field.get(x, y) instanceof Soil) {
-			            System.out.println("Enter 'a' to buy an apple for $ or 'g' to buy grain for $");
+			        Object obj = field.get(x, y);
+			        if (obj instanceof Soil) {
+			            System.out.println("Enter");
+			            System.out.println(" - 'a' to buy an apple for $");
+			            System.out.println(" - 'g' to buy grain for ");
 			            String itemInput = sc.nextLine();
 			            if (itemInput.equals("a") && bankBalance >= Apples.getCost()) {
 			                field.plant(x, y, new Apples());
@@ -153,7 +156,7 @@ public class Farm {
 			                System.out.println("You can't afford to plant that item. Please try again.");
 			                continue;
 			            }
-			            System.out.println("Planted " + field.get(x, y)+ " at (" + x + "," + y + ")");
+			            //System.out.println("Planted " + field.get(x, y)+ " at (" + x + "," + y + ")");
 			        } else {
 			            System.out.println("You can only plant items in Soil. Please try again.");
 			        }
